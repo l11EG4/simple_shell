@@ -1,5 +1,5 @@
 # simple_shell
-
+# By: ZAKARIA BERAHMI & LAILA TABOURIT
 0x16. C - Simple Shell
 ----------------------
 General:
