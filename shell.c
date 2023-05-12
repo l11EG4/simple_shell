@@ -14,6 +14,7 @@ char **split_input(char *line)
 	int i;
 	char *line_copy;
 
+	/*--------Allocate space for line_copy-----------*/
 	line copy = malloc(sizeof(char) * strlen(line));
 
 	if (line_copy == NULL)
@@ -21,7 +22,9 @@ char **split_input(char *line)
 		perror("memory allocation error");
 		return (NULL);
 	}
+	/*-------Copy line into line_copy---------------*/
 	strcpy(line_copy, line);
+	/*----------Split the input string to an array-----*/
 	tokens = strtok(line, delimiters);
 	while (tokens != NULL)
 	{
@@ -29,6 +32,7 @@ char **split_input(char *line)
 		tokens = strtok(NULL, delimiters);
 	}
 	number_tokens++;
+	/*--Allocate space & stor each token in an array of strings(argv)--*/
 	argv = malloc(ziseof(char *) * number_tokens);
 	tokens = strtok(line_copy, delimiters);
 	for (i = 0; tokens != NULL; i++)
@@ -60,13 +64,18 @@ int main(int argc, char **argv)
 	(void)argc;
 	(void)argv;
 
+	/*------create an infinite loop for the shel prompt-----*/
 	while (1)
 	{
 		printf("%s", prmt);
 		chars_read = getline(&line, &n, stdin);
+	/*-----Checks if the getline failed or we use the CTRL + D------*/
 		if (chars_read == -1)
+		{
 			printf("============Exiting from shell...See you later==========\n");
 			return (-1);
+		}
+
 		splited_input = split_input(line);
 		if (splited_input == NULL)
 			printf("splited inputs failed");
@@ -74,6 +83,8 @@ int main(int argc, char **argv)
 		}
 		/*-----calling function to execute cmd----------*/
 		/*exe_cmd(splited_input);*/
+
+		/*--------Free the allocated memory for eash splited input-----*/
 		for (i = 0; splited_input[i] != NULL; i++)
 			free(splited_input[i];
 		free(splited_input);
