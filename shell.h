@@ -8,11 +8,18 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include <sys/wait.h>
+
+
+extern char **environ;
 /*-------------------------Prototypes--------------------------*/
 
 ssize_t getline(char **line, size_t *n, FILE *file);
 char *strtok(char *str, const char *delimiters);
-/*void exe_cmd(char **argv);*/
+char **split_input(char *line);
+size_t strlen(const char *str);
+char *strcpy(char *des, const char *src);
+int exe_cmd(char **argv);
 
 
 #endif
