@@ -17,8 +17,8 @@ extern char **environ;
 ssize_t getline(char **line, size_t *n, FILE *file);
 char *strtok(char *str, const char *delimiters);
 char **split_input(char *line);
-size_t strlen(const char *str);
-char *strcpy(char *des, const char *src);
+size_t _strlen(const char *str);
+char *_strcpy(char *des, const char *src);
 int exe_cmd(char **argv);
 
 

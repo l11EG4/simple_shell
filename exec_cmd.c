@@ -25,7 +25,7 @@ int exe_cmd(char **argv)
 	/*-------------child process---------------*/
 		if (execve(argv[0], argv, environ) == -1)
 		{
-			perror("execvp fail");
+			perror("./shell:");
 			exit(EXIT_FAILURE);
 		}
 	}
