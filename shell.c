@@ -22,19 +22,19 @@ int main(int argc, char **argv)
 	/*------create an infinite loop for the shel prompt-----*/
 	while (1)
 	{
-		printf("%s", prmt);
+		_print_str(prmt);
 		chars_read = getline(&line, &n, stdin);
-	/*-----Checks if the getline failed or we use the CTRL + D------*/
+		/*-----Checks if the getline failed or we use the CTRL + D------*/
 		if (chars_read == -1)
 		{
-			printf("============Exiting from shell...See you later==========\n");
+			_print_str("============Exiting from shell...See you later==========\n");
 			return (-1);
 		}
 
 		splited_input = split_input(line);
 		if (splited_input == NULL)
 		{
-			printf("splited inputs failed\n");
+			_print_str("splited inputs failed\n");
 			continue;
 		}
 		/*-----calling function to execute cmd----------*/

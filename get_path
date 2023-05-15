@@ -1,0 +1,12 @@
+#include "shell.h"
+
+/**
+* @cmd: argument
+* by: laila and mega
+*
+* Return: the path
+*/
+char *get_path(char *cmd)
+{
+	char *path, *path_cp;
+}

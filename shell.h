@@ -20,6 +20,8 @@ char **split_input(char *line);
 size_t _strlen(const char *str);
 char *_strcpy(char *des, const char *src);
 int exe_cmd(char **argv);
-
-
+char *get_path(char *cmd);
+char *get_env(const char *var);
+int _print_str(char *str);
+int _putchar(char c);
 #endif
