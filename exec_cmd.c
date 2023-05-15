@@ -11,9 +11,15 @@ int exe_cmd(char **argv)
 {
 	pid_t pid;
 	int stat;
+	char *cmd;
 
+	cmd = get_path(argv[0]);
+	if (cmd == NULL)
+	{
+		_print_str("Command not found");
+		return (-1);
+	}
 	pid = fork();
-
 	/*---------checks if fork failed-----------*/
 	if (pid == -1)
 	{
@@ -23,7 +29,7 @@ int exe_cmd(char **argv)
 	else if (pid == 0)
 	{
 	/*-------------child process---------------*/
-		if (execve(argv[0], argv, environ) == -1)
+		if (execve(cmd, argv, environ) == -1)
 		{
 			perror("./shell");
 			exit(EXIT_FAILURE);

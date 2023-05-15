@@ -1,19 +1,20 @@
 #include "shell.h"
 
 /**
-* _print_str - rites a string into the standard output
+* _print_str - writes a string into the standard output
 * @str: string
 *
-* by: lailalita and Megato
+* by: lailita and Megato
 * Return: number of characters printed
 */
 
 int _print_str(char *str)
 {
 	int i = 0;
+
 	if (str == NULL)
 	{
-		writes(1, "(null)", 6);
+		write(1, "(null)", 6);
 		return (6);
 	}
 	while (str[i])

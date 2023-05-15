@@ -1,6 +1,7 @@
 #include "shell.h"
 
 /**
+* get_path - get the path file
 * @cmd: argument
 * by: laila and mega
 *
@@ -9,7 +10,7 @@
 char *get_path(char *cmd)
 {
 	char *path, *path_cp;
-	char* *path_token, *path_file;
+	char *path_token, *path_file;
 	int cmd_len, dir_len;
 	struct stat buff;
 
@@ -21,11 +22,11 @@ char *get_path(char *cmd)
 
 		cmd_len = _strlen(cmd);
 		
-		path _token = strtok(path_cp, ":");
+		path_token = strtok(path_cp, ":");
 
 		while (path_token != NULL)
 		{
-			dir_len = _Strlen(path_token);
+			dir_len = _strlen(path_token);
 
 			path_file = malloc(cmd_len + dir_len + 2);
 
@@ -54,4 +55,6 @@ char *get_path(char *cmd)
 		}
 		return (NULL);
 	}
+	return (NULL);
 }
+
