@@ -10,7 +10,7 @@ char *get_env(const char *var)
 {
 	extern char **environ;
 	char **p = environ;
-	size_t len = strlen(var);
+	size_t len = _strlen(var);
 
 	while (*p != NULL)
 	{

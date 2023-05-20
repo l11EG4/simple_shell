@@ -16,7 +16,8 @@ char *_strtok(char str[], const char *dlm)
 
 	if (str != NULL)
 	{
-		if (cmp_chars(str, dlm))
+		size_t len = _strlen(dlm);
+		if (_strncmp(str, dlm, len) == 0)
 			return (NULL);
 		splited = str; /*stckage 1st adress*/
 		i = _strlen(str);
@@ -34,7 +35,7 @@ char *_strtok(char str[], const char *dlm)
 		/*replace delimiter for NULL char**/
 		for (i = 0; dlm[i]; i++)
 		{
-			if (splited == dlm[i])
+			if (*splited == dlm[i])
 			{
 				*splited = '\0';
 				if (splited == str_start)
@@ -47,5 +48,5 @@ char *_strtok(char str[], const char *dlm)
 	}
 	if (bool == 0)
 		return (NULL);
-	return (str_strat);
+	return (str_start);
 }

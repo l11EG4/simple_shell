@@ -18,11 +18,11 @@ char *get_path(char *cmd)
 
 	if (path)
 	{
-		path_cp = strdup(path);
+		path_cp = _strdup(path);
 
 		cmd_len = _strlen(cmd);
 		
-		path_token = strtok(path_cp, ":");
+		path_token = _strtok(path_cp, ":");
 
 		while (path_token != NULL)
 		{
@@ -43,7 +43,7 @@ char *get_path(char *cmd)
 			else
 			{
 				free(path_file);
-				path_token = strtok(NULL, ":");
+				path_token = _strtok(NULL, ":");
 			}
 		}
 

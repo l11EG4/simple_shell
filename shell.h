@@ -14,9 +14,10 @@ extern char **environ;
 /*-------------------------Prototypes--------------------------*/
 
 ssize_t getline(char **line, size_t *n, FILE *file);
-char *strtok(char *str, const char *delimiters);
+char *_strtok(char *str, const char *dlm);
 char **split_input(char *line);
 size_t _strlen(const char *str);
+char *_strdup(const char *s);
 char *_strcpy(char *des, const char *src);
 char *_strcat(char *dstn, char *src);
 int _strncmp(const char *s1, const char *s2, size_t n);

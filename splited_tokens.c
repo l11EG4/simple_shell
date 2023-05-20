@@ -27,22 +27,22 @@ char **split_input(char *line)
 	/*-------Copy line into line_copy---------------*/
 	_strcpy(line_copy, line);
 	/*----------Split the input string to an array-----*/
-	tokens = strtok(line, delimiters);
+	tokens = _strtok(line, delimiters);
 
 	while (tokens != NULL)
 	{
 		number_tokens++;
-		tokens = strtok(NULL, delimiters);
+		tokens = _strtok(NULL, delimiters);
 	}
 	number_tokens++;
 	/*--Allocate space & stor each token in an array of strings(argv)--*/
 	argv = malloc(sizeof(char *) * number_tokens);
-	tokens = strtok(line_copy, delimiters);
+	tokens = _strtok(line_copy, delimiters);
 	for (i = 0; tokens != NULL; i++)
 	{
 		argv[i] = malloc(sizeof(char) * _strlen(tokens));
 		_strcpy(argv[i], tokens);
-		tokens = strtok(NULL, delimiters);
+		tokens = _strtok(NULL, delimiters);
 	}
 	argv[i] = NULL;
 	free(line_copy);
