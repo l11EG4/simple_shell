@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
-* _gentev - compare the 1st len characters of each environments
+* get_env - compare the 1st len characters of each environments
+* @var: variable
 * Made by laila and Mega
 * Return: Null
 */
 
 char *get_env(const char *var)
 {
-	extern char **environ;
 	char **p = environ;
 	size_t len = _strlen(var);
 

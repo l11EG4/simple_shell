@@ -1,4 +1,3 @@
-
 #include "shell.h"
 
 /**
@@ -11,27 +10,23 @@
 */
 int main(int argc, char **argv)
 {
-	char *prmt = "Laila&llEG4$ ";
-	char *line = NULL;
+	char *prmt = "Laila&llEG4$ ", *line = NULL;
 	size_t n = 0;
 	ssize_t chars_read;
 	char **splited_input;
-	int i;
-	(void)argc;
-	(void)argv;
+	(void) argc;
+	(void) argv;
 
 	/*------create an infinite loop for the shel prompt-----*/
 	while (1)
 	{
 		_print_str(prmt);
 		chars_read = getline(&line, &n, stdin);
-		/*-----Checks if the getline failed or we use the CTRL + D------*/
 		if (chars_read == -1)
 		{
 			_print_str("\n============Exiting from shell...See you later==========\n");
 			return (-1);
 		}
-
 		splited_input = split_input(line);
 		if (splited_input == NULL)
 		{
@@ -40,18 +35,16 @@ int main(int argc, char **argv)
 		}
 		if (_strncmp(splited_input[0], "exit", 4) == 0)
 		{
-			_print_str("\n");
-			_print_str("==========Exiting from shell ... yalah noud noud t*** chkon chdk=========\n");
+			_print_str("\n==Exiting from shell...yalah noud t*** chkon chdk==\n");
 			break;
 		}
-		/*-----calling function to execute cmd----------*/
-		exe_cmd(splited_input);
-
+		else if (_strncmp(splited_input[0], "env", 3 == 0))
+			env();
+		else
+			exe_cmd(splited_input);/*execute cmd*/
 		/*--------Free the allocated memory for eash splited input-----*/
-		for (i = 0; splited_input[i] != NULL; i++)
-		{
+		for (int i = 0; splited_input[i] != NULL; i++)
 			free(splited_input[i]);
-		}
 		free(splited_input);
 	}
 	free(line);
@@ -59,3 +52,19 @@ int main(int argc, char **argv)
 	return (0);
 }
 
+/**
+* env - execute the command env built-in
+* by: laila & mega
+* Return: void
+*/
+void env(void)
+{
+	char **envi = environ;
+
+	while (*envi)
+	{
+		_print_str(*envi);
+		_print_str("\n");
+		envi++;
+	}
+}

@@ -26,4 +26,5 @@ char *get_path(char *cmd);
 char *get_env(const char *var);
 int _print_str(char *str);
 int _putchar(char c);
+void env(void);
 #endif

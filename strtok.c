@@ -17,6 +17,7 @@ char *_strtok(char str[], const char *dlm)
 	if (str != NULL)
 	{
 		size_t len = _strlen(dlm);
+
 		if (_strncmp(str, dlm, len) == 0)
 			return (NULL);
 		splited = str; /*stckage 1st adress*/

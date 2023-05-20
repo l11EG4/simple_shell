@@ -5,7 +5,7 @@
 * @dstn: the destination of the buffer
 * @src: the source of the buffer
 * Made by Laila and Mega
-* Retrun: the pointer to the destionation of the buffer
+* Return: the pointer to the destionation of the buffer
 */
 
 char *_strcat(char *dstn, char *src)
