@@ -1,3 +1,4 @@
+
 #include "shell.h"
 
 /**
@@ -36,6 +37,12 @@ int main(int argc, char **argv)
 		{
 			_print_str("splited inputs failed\n");
 			continue;
+		}
+		if (_strncmp(splited_input[0], "exit", 4) == 0)
+		{
+			_print_str("\n");
+			_print_str("==========Exiting from shell ... yalah noud noud t*** chkon chdk=========\n");
+			break;
 		}
 		/*-----calling function to execute cmd----------*/
 		exe_cmd(splited_input);

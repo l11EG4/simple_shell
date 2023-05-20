@@ -16,7 +16,7 @@ int exe_cmd(char **argv)
 	cmd = get_path(argv[0]);
 	if (cmd == NULL)
 	{
-		_print_str("Command not found");
+		_print_str("\nCommand not found");
 		return (-1);
 	}
 	pid = fork();
