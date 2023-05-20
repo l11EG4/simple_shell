@@ -14,7 +14,7 @@ char *get_path(char *cmd)
 	int cmd_len, dir_len;
 	struct stat buff;
 
-	path = getenv("PATH");
+	path = get_env("PATH");
 
 	if (path)
 	{
@@ -31,9 +31,9 @@ char *get_path(char *cmd)
 			path_file = malloc(cmd_len + dir_len + 2);
 
 			_strcpy(path_file, path_token);
-			strcat(path_file, "/");
-			strcat(path_file, cmd);
-			strcat(path_file, "\0");
+			_strcat(path_file, "/");
+			_strcat(path_file, cmd);
+			_strcat(path_file, "\0");
 
 			if (stat(path_file, &buff) == 0)
 			{

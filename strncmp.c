@@ -1,4 +1,4 @@
-#include "ahell.h"
+#include "shell.h"
 
 /**
 * _strncmp - fonction cmopares at most n characters of
@@ -12,7 +12,9 @@
 
 int _strncmp(const char *s1, const char *s2, size_t n)
 {
-	for (size_t i = 0; i < n; i++)
+	size_t i;
+
+	for (i = 0; i < n; i++)
 	{
 		if (s1[i] != s2[i])
 		{
@@ -20,7 +22,7 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 		}
 		else if (s1[i] == '\0')
 		{
-		return (0);
+			return (0);
 		}
 	}
 	return (0);

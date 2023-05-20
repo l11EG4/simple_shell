@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 		/*-----Checks if the getline failed or we use the CTRL + D------*/
 		if (chars_read == -1)
 		{
-			_print_str("============Exiting from shell...See you later==========\n");
+			_print_str("\n============Exiting from shell...See you later==========\n");
 			return (-1);
 		}
 

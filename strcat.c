@@ -8,9 +8,9 @@
 * Retrun: the pointer to the destionation of the buffer
 */
 
-char *_strcat(char *dstn, char *scr)
+char *_strcat(char *dstn, char *src)
 {
-	char *ret = dest;
+	char *ret = dstn;
 
 	while (*dstn)
 		dstn++;

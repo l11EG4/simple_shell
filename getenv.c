@@ -6,19 +6,19 @@
 * Return: Null
 */
 
-char *_gentev(const char *name)
+char *get_env(const char *var)
 {
 	extern char **environ;
 	char **p = environ;
-	size_t len = strlen(name);
+	size_t len = strlen(var);
 
-	while (*P != NULL)
+	while (*p != NULL)
 	{
-		if (strncmp(name, *p, len) == 0 && (*p)[len] == '=')
+		if (_strncmp(var, *p, len) == 0 && (*p)[len] == '=')
 		{
 			return (&((*p)[len + 1]));
 		}
-		p++
+		p++;
 	}
 	return (NULL);
 }
