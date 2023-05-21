@@ -26,5 +26,6 @@ char *get_path(char *cmd);
 char *get_env(const char *var);
 int _print_str(char *str);
 int _putchar(char c);
+void check_input(char **splited_input);
 void env(void);
 #endif

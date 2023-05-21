@@ -12,6 +12,7 @@ int main(int argc, char **argv)
 {
 	char *prmt = "Laila&llEG4$ ", *line = NULL;
 	size_t n = 0;
+	int i;
 	ssize_t chars_read;
 	char **splited_input;
 	(void) argc;
@@ -33,17 +34,11 @@ int main(int argc, char **argv)
 			_print_str("splited inputs failed\n");
 			continue;
 		}
-		if (_strncmp(splited_input[0], "exit", 4) == 0)
-		{
-			_print_str("\n==Exiting from shell...yalah noud t*** chkon chdk==\n");
-			break;
-		}
-		else if (_strncmp(splited_input[0], "env", 3 == 0))
-			env();
-		else
-			exe_cmd(splited_input);/*execute cmd*/
+
+		check_input(splited_input);/* calling check function*/
+
 		/*--------Free the allocated memory for eash splited input-----*/
-		for (int i = 0; splited_input[i] != NULL; i++)
+		for (i = 0; splited_input[i] != NULL; i++)
 			free(splited_input[i]);
 		free(splited_input);
 	}
