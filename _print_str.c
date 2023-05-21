@@ -24,3 +24,23 @@ int _print_str(char *str)
 	}
 	return (i);
 }
+
+/**
+* _print_num - function prints an number integer
+* @n: integer
+*
+* by: by me &him
+*/
+void _print_num(int n)
+{
+	if (n < 0)
+	{
+		_putchar('-');
+		n = -n;
+	}
+
+	if (n / 10 != 0)
+		_print_num(n / 10);
+
+	_putchar('0' + (n % 10));
+}

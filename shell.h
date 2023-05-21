@@ -13,7 +13,13 @@
 extern char **environ;
 /*-------------------------Prototypes--------------------------*/
 
-ssize_t getline(char **line, size_t *n, FILE *file);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void _memcpy(void *newptr, const void *ptr, unsigned int size)
+int _atoi(char *s)
+ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
+void bring_line(char **lineptr, size_t *n, char *buffer, size_t j)
+void _print_num(int n)
+/* ssize_t _getline(char **line, size_t *n, FILE *file);*/
 char *_strtok(char *str, const char *dlm);
 char **split_input(char *line);
 size_t _strlen(const char *str);

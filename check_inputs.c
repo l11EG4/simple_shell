@@ -14,7 +14,7 @@ void check_input(char **splited_input)
 		{
 			int status = atoi(splited_input[1]);
 			_print_str("\n===Exiting from shell...Yalah noud *** chkon chdk");
-			_print_num(status);
+/*			_print_num(status);*/
 			_print_str("==\n");
 			exit(status);
 		}
