@@ -42,7 +42,7 @@ void bring_line(char **lineptr, size_t *n, char *buffer, size_t j)
 * Return: num of bytes
 */
 
-ssize_t get_line(char **lineptr, size *n, FILE stream)
+ssize_t get_line(char **lineptr, size_t *n, FILE stream)
 {
 	int i;
 	static ssize_t input;
