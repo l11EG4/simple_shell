@@ -9,6 +9,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+#define BUFSIZE 1024
 
 extern char **environ;
 /*-------------------------Prototypes--------------------------*/

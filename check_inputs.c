@@ -12,7 +12,7 @@ void check_input(char **splited_input)
 	{
 		if (splited_input[1] != NULL)
 		{
-			int status = atoi(splited_input[1]);
+			int status = _atoi(splited_input[1]);
 
 			_print_str("\n===Exiting from shell...Yalah noud *** chkon chdk");
 			_print_num(status);
