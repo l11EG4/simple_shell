@@ -15,10 +15,10 @@
 #define MAX_ALIAS_CMP 100
 #define MAX_VALUE_LEN 100
 #define MAX_ALIAS_LEN 100
-extern int last_exit_stat;
+int last_exit_stat;
 extern char **environ; /*external variable for execute the cmd*/
 /*-----------------------Struct Alias----------------------------*/
-/**
+/*
 * typedef Alias - struct for alias
 * @name: alias name
 * @value: alias value
@@ -34,7 +34,7 @@ typedef struct
 	char value[MAX_VALUE_LEN];
 } Alias;
 
-extern Alias als[MAX_ALIAS_CMP];
+Alias als[MAX_ALIAS_CMP];
 
 /*-------------------------Prototypes--------------------------*/
 
