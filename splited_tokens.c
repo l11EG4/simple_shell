@@ -9,16 +9,13 @@
 */
 char **split_input(char *line)
 {
-	const char *delimiters = " \n";
-	const char *tokens;
-	int number_tokens = 0;
-	int i;
+	const char *delimiters = " \n", *tokens;
+	int number_tokens = 0, i;
 	char *line_copy;
 	char **argv;
 
 	/*--------Allocate space for line_copy-----------*/
 	line_copy = malloc(sizeof(char) * _strlen(line));
-
 	if (line_copy == NULL)
 	{
 		perror("memory allocation error");
@@ -28,7 +25,10 @@ char **split_input(char *line)
 	_strcpy(line_copy, line);
 	/*----------Split the input string to an array-----*/
 	tokens = _strtok(line, delimiters);
-
+	if (tokens == NULL)
+	{
+		return (0);
+	}
 	while (tokens != NULL)
 	{
 		number_tokens++;

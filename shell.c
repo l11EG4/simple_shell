@@ -31,7 +31,6 @@ int main(int argc, char **argv)
 		splited_input = split_input(line);
 		if (splited_input == NULL)
 		{
-			_print_str("splited inputs failed\n");
 			continue;
 		}
 
