@@ -5,13 +5,26 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <stddef.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-
+#include <stdarg.h>
+/*-------------------Define variables for getline & Alias------*/
 #define BUFSIZE 1024
+#define MAX_ALIAS_CMP 100
+#define MAX_VALUE_LEN 100
+#define MAX_ALIAS_LEN 100
+int last_exit_stat;
+extern char **environ; /*external variable for execute the cmd*/
+/*-----------------------Struct Alias----------------------------*/
+typedef struct {
+	char name[MAX_ALIAS_LEN];
+	char value[MAX_VALUE_LEN];
+} Alias;
 
-extern char **environ;
+Alias als[MAX_ALIAS_CMP];
+
 /*-------------------------Prototypes--------------------------*/
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
@@ -35,4 +48,13 @@ int _print_str(char *str);
 int _putchar(char c);
 void check_input(char **splited_input);
 void env(void);
+int _echoo(char **arg);
+/*---------Alias function-------*/
+void _printAliases(Alias *als);
+int _printAlias(Alias *als, const char *name);
+void _defineAlias(const char *name, const char *value);
+void _checkAlias(char *cmd);
+int _snprint(char *str, size_t size, const char *format, ...);
+char *_strncpy(char *dst, const char *src, size_t n);
+
 #endif
