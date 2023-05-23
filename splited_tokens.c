@@ -26,7 +26,7 @@ char **split_input(char *line)
 	/*----------Split the input string to an array-----*/
 	tokens = _strtok(line, delimiters);
 	if (tokens == NULL)
-		return;
+		return (0);
 	while (tokens != NULL)
 	{
 		number_tokens++;
