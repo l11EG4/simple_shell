@@ -14,7 +14,7 @@ int main(void)
 	char **av;
 
 	signal(SIGINT, SIG_ING);
-	PATH = _getenv("PATH");
+	PATH = get_env("PATH");
 	if (PATH == NULL)
 		return (-1);
 	while (1)
