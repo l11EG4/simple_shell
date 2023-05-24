@@ -1,4 +1,17 @@
 #include "shell.h"
+/**
+*sig_hand - signal handler
+* @sig: signal
+*
+*/
+void sig_hand(int sig)
+{
+	char *nw_prmt = "\n$ ";
+
+	(void)sig;
+	signal(SIGINT, sig_hand);
+	write(STDIN_FILENO, nw_prmt, 3);
+}
 
 /**
 * main - main_function
@@ -18,6 +31,7 @@ int main(int argc, char **argv)
 	(void) argc;
 	(void) argv;
 
+	signal(SIGINT, sig_hand);
 	/*------create an infinite loop for the shel prompt-----*/
 	while (1)
 	{
