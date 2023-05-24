@@ -29,7 +29,7 @@ void handle_env_var(char *arg)
 */
 int _echoo(char **arg)
 {
-	int pid;
+	int pid, last_exit_status = 0;
 	char *s;
 	size_t len;
 
@@ -48,7 +48,7 @@ int _echoo(char **arg)
 		}
 		else if (_strncmp("$?", arg[1], _strlen(arg[1])) == 0)
 		{
-			_print_num(last_exit_stat);
+			_print_num(last_exit_status);
 			_print_str("\n");
 		}
 		else if (arg[1][0] == '$')

@@ -21,9 +21,8 @@ int main(int argc, char **argv)
 	/*------create an infinite loop for the shel prompt-----*/
 	while (1)
 	{
-	
-		prompt();
-		chars_read = getline(&line, &n, stdin);
+		_prompt();
+		chars_read = get_line(&line, &n, stdin);
 		if (chars_read == -1)
 		{
 			_print_str("\n============Exiting from shell...See you later==========\n");

@@ -29,8 +29,6 @@ void check_input(char **splited_input)
 	{
 		env();/*execute the built-in env*/
 	}
-	else if (_strncmp(splited_input[0], "alias", 5) == 0)
-		_checkAlias(splited_input[0] + 5);
 	else if (_strncmp(splited_input[0], "echo", 4) == 0)
 		_echoo(splited_input);
 	else

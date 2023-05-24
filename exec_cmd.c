@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
-* prompt - display prompt
+* _prompt - display prompt
 * by: L&Z
 */
-void prompt()
+void _prompt(void)
 {
 	_print_str("Laila&11EG4$ ");
 	fflush(stdout);
