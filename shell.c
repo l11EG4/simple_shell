@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	{
 	
 		prompt();
-		chars_read = get_line(&line, &n, stdin);
+		chars_read = getline(&line, &n, stdin);
 		if (chars_read == -1)
 		{
 			_print_str("\n============Exiting from shell...See you later==========\n");
