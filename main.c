@@ -7,11 +7,11 @@
 
 void C_handler(int sig_num)
 {
-    (void)sig_num;
-    signal(SIGINT, C_handler);
-    fflush(stdout);
+	(void)sig_num;
+	signal(SIGINT, C_handler);
+	fflush(stdout);
 }
-void C_andler(int sig_num);
+void C_handler(int sig_num);
 /**
 * main - main_function
 * @argc: argument
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 	while (1)
 	{
 		_prompt();
-		chars_read = getline (&line, &n, stdin);
+		chars_read = getline(&line, &n, stdin);
 		if (chars_read == -1)
 		{
 			if(isatty(STDIN_FILENO))
