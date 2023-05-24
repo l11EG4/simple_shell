@@ -26,6 +26,7 @@ int main(int argc, char **argv)
 	char **splited_input;
 	ssize_t chars_read;
 	size_t n = 0;
+	int s = 0;
 
 	(void)argc;
 	(void)argv;
@@ -47,10 +48,11 @@ int main(int argc, char **argv)
 			continue;
 		}
 		check_input(splited_input);
+		s = exe_cmd(splited_input);
 		free(splited_input);
 	}
 	free(line);
-	return (0);
+	return (s);
 }
 /**
 * env - execute the command env built-in

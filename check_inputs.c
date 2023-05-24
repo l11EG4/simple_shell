@@ -31,10 +31,6 @@ void check_input(char **splited_input)
 	}
 	else if (_strncmp(splited_input[0], "echo", 4) == 0)
 		_echoo(splited_input);
-	else
-	{
-		exe_cmd(splited_input);/*execute cmd*/
-	}
 }
 
 
