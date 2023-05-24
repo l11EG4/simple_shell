@@ -6,7 +6,7 @@
 */
 void _prompt(void)
 {
-	_print_str("Laila&11EG4$ ");
+	_print_str("$ ");
 	fflush(stdout);
 }
 

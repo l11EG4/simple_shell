@@ -31,7 +31,6 @@ int main(int argc, char **argv)
 		splited_input = split_input(line);
 		if (splited_input == NULL)
 		{
-			perror("no argument found");
 			continue;
 		}
 

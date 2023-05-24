@@ -14,19 +14,13 @@ char **split_input(char *line)
 	char *line_copy;
 	char **argv;
 
-	/*--------Allocate space for line_copy-----------*/
-	line_copy = malloc(sizeof(char) * _strlen(line));
-	if (line_copy == NULL)
-	{
-		perror("memory allocation error");
-		return (NULL);
-	}
-	/*-------Copy line into line_copy---------------*/
-	_strcpy(line_copy, line);
+	line_copy = _strdup(line);
+
 	/*----------Split the input string to an array-----*/
-	tokens = _strtok(line, delimiters);
+	tokens = _strtok(line_copy, delimiters);
 	if (tokens == NULL)
-		return (0);
+		return (NULL);
+
 	while (tokens != NULL)
 	{
 		number_tokens++;
@@ -35,14 +29,14 @@ char **split_input(char *line)
 	number_tokens++;
 	/*--Allocate space & stor each token in an array of strings(argv)--*/
 	argv = malloc(sizeof(char *) * number_tokens);
-	tokens = _strtok(line_copy, delimiters);
+	tokens = _strtok(line, delimiters);
 	for (i = 0; tokens != NULL; i++)
 	{
-		argv[i] = malloc(sizeof(char) * _strlen(tokens));
-		_strcpy(argv[i], tokens);
+		argv[i] = _strdup(tokens);
 		tokens = _strtok(NULL, delimiters);
 	}
 	argv[i] = NULL;
 	free(line_copy);
+
 	return (argv);
 }

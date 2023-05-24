@@ -14,14 +14,14 @@ void check_input(char **splited_input)
 		{
 			int status = _atoi(splited_input[1]);
 
-			_print_str("\n===Exiting from shell...Yalah noud *** chkon chdk");
+			_print_str("\nExiting from shell... Status: ");
 			_print_num(status);
-			_print_str("==\n");
+			_print_str("\n");
 			exit(status);
 		}
 		else
 		{
-			_print_str("\n==Exiting from shell.... yalah lbab al7bab==\n");
+			_print_str("\nExiting from shell...\n");
 			exit(0);
 		}
 	}
