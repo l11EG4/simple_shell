@@ -25,8 +25,8 @@ int main(int argc, char **argv)
 		chars_read = getline(&line, &n, stdin);
 		if (chars_read == -1)
 		{
-			_print_str("\n============Exiting from shell...See you later==========\n");
-			break;
+			free(line);
+			exit(0);
 		}
 		splited_input = split_input(line);
 		if (splited_input == NULL)
@@ -39,10 +39,9 @@ int main(int argc, char **argv)
 		/*--------Free the allocated memory for eash splited input-----*/
 		for (i = 0; splited_input[i] != NULL; i++)
 			free(splited_input[i]);
-		free (line);
 		free(splited_input);
 	}
-
+	free(line);
 	return (0);
 }
 
