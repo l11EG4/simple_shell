@@ -13,14 +13,12 @@
 #include <stdarg.h>
 /*-------------------Define variables for getline & Alias------*/
 #define BUFSIZE 1024
-#define MAX_ALIAS_CMP 100
-#define MAX_VALUE_LEN 100
-#define MAX_ALIAS_LEN 100
 
 extern char **environ;
 
 /*-------------------------Prototypes--------------------------*/
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+char *_reaad(void);
 void _memcpy(void *newptr, const void *ptr, unsigned int size);
 int _atoi(char *s);
 ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
