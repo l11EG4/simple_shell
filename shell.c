@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 {
 	char *line = NULL;
 	size_t n = 0;
-
+	int i;
 	ssize_t chars_read;
 	char **splited_input;
 	(void) argc;
@@ -37,8 +37,8 @@ int main(int argc, char **argv)
 		check_input(splited_input);/* calling check function*/
 
 		/*--------Free the allocated memory for eash splited input-----*/
-		/*for (i = 0; splited_input[i] != NULL; i++)
-			free(splited_input[i]);*/
+		for (i = 0; splited_input[i] != NULL; i++)
+			free(splited_input[i]);
 		free (line);
 		free(splited_input);
 	}
