@@ -35,11 +35,11 @@ char *_strcat(char *dstn, char *src);
 int _strncmp(const char *s1, const char *s2, size_t n);
 int exe_cmd(char **argv);
 char *get_path(char *cmd);
-char *get_env(const char *var);
+char *get_env(const char *nam);
+int _env(void);
 int _print_str(char *str);
 int _putchar(char c);
 void check_input(char **splited_input);
-void env(void);
 int _echoo(char **arg);
 /*---------Alias function--*/
 int _snprint(char *str, size_t size, const char *format, ...);
