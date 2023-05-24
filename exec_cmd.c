@@ -19,41 +19,32 @@ void _prompt(void)
 */
 int exe_cmd(char **argv)
 {
-	pid_t pid;
-	int stat;
-	char *cmd;
+	char *command = NULL;
+	pid_t child_pid = 0;
+	int status = 0;
 
-	cmd = get_path(argv[0]);
-	if (cmd == NULL)
+	command = get_path(argv[0]);
+	if (command == NULL)
+		return (1);
+	if (!access(command, X_OK))
 	{
-		_print_str("./Shell: Command not found\n");
-		return (-1);
-	}
-	pid = fork();
-	/*---------checks if fork failed-----------*/
-	if (pid < 0)
-	{
-		perror("fork error");
-		return (-1);
-	}
-	else if (pid == 0)
-	{
-	/*-------------child process---------------*/
-		if (execve(cmd, argv, environ) == -1)
+		child_pid = fork();
+		if (child_pid == -1)
 		{
-			perror("./shell");
-			exit(EXIT_FAILURE);
+			perror(argv[0]);
+			return (1);
 		}
-	}
-	else
-	{
-	/*--------------Parent process-----------*/
-		if (waitpid(pid, &stat, 0) == -1)
+		if (child_pid == 0)
 		{
-			perror("waitpid fail");
-			return (-1);
+			if (execve(command, argv, environ) == -1)
+			{
+				perror(argv[0]);
+				free(command);
+				exit(1);
+			}
 		}
+		else
+			wait(&status);
 	}
-	return (0);
+	return (status);
 }
-
