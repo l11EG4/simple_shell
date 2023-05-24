@@ -10,7 +10,7 @@
 */
 int main(int argc, char **argv)
 {
-	char *prmt = "Laila&llEG4$ ", *line = NULL;
+	char *line = NULL;
 	size_t n = 0;
 	int i;
 	ssize_t chars_read;
@@ -21,12 +21,13 @@ int main(int argc, char **argv)
 	/*------create an infinite loop for the shel prompt-----*/
 	while (1)
 	{
-		_print_str(prmt);
+	
+		prompt();
 		chars_read = get_line(&line, &n, stdin);
 		if (chars_read == -1)
 		{
 			_print_str("\n============Exiting from shell...See you later==========\n");
-			return (-1);
+			break;
 		}
 		splited_input = split_input(line);
 		if (splited_input == NULL)

@@ -1,6 +1,16 @@
 #include "shell.h"
 
 /**
+* prompt - display prompt
+* by: L&Z
+*/
+void prompt()
+{
+	_print_str("Laila&11EG4$ ");
+	fflush(stdout);
+}
+
+/**
 * exe_cmd - execute the command entered
 * @argv: tokens splited
 * by: laila & mega
@@ -21,7 +31,7 @@ int exe_cmd(char **argv)
 	}
 	pid = fork();
 	/*---------checks if fork failed-----------*/
-	if (pid == -1)
+	if (pid < 0)
 	{
 		perror("fork error");
 		return (-1);
