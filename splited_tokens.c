@@ -1,6 +1,31 @@
 #include "shell.h"
 
 /**
+* _splitstring - function
+*@s:argument
+*Return: int
+*/
+int _splitstring(char *s)
+{
+	int i;
+	int srcflg = 1;
+	int cmp = 0;
+
+	for (i = 0; s[i]; i++)
+	{
+		if (s[i] != ' ' && srcflg == 1)
+		{
+			cmp += 1;
+			srcflg = 0;
+		}
+		if (s[i + 1] == ' ')
+			srcflg = 1;
+	}
+	return (cmp);
+}
+
+
+/**
 * split - split inputs to tokens
 * @buff: string
 * by : laila & Mega
@@ -14,7 +39,7 @@ char **split(char *buff)
 	int number_tokens = 0, i;
 	char **argv;
 
-	number_tokens = split(buff);
+	number_tokens = _splitstring(buff);
 	if (!number_tokens)
 		return (NULL);
 	argv = malloc((number_tokens + 1) * sizeof(char *));
@@ -52,7 +77,7 @@ int _splites(char *str)
 			cmp += 1;
 			srcflag = 0;
 		}
-		if (str[i + 1] == ':')
+		if (str[i + 1] == ' ')
 			srcflag = 1;
 	}
 	return (cmp);
