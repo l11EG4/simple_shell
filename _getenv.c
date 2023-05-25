@@ -13,7 +13,7 @@ char *get_env(const char *nam)
 
 	for (a = 0; environ[a]; a++)
 	{
-		result = _PATHcmp(nam, environ[a]);
+		result = _PATHstrcmp(nam, environ[a]);
 		if (result == 0)
 		{
 			return (environ[a]);
@@ -33,6 +33,6 @@ int _env(void)
 	int a;
 
 	for (a = 0; environ[a]; a++)
-		_puts(environ[a]);
+		puts(environ[a]);
 	return (0);
 }

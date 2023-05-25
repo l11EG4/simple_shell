@@ -61,7 +61,7 @@ char *_con_cat(char *tmp, char **av, char *tok)
 {
 	int len = 0;
 
-	_memset(tmp, 0, 256);
+	memset(tmp, 0, 256);
 	len = _strlen(tok) + _strlen(av[0]) + 2;
 	_strcat(tmp, tok);
 	_strcat(tmp, "/");
