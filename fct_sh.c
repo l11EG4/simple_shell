@@ -12,7 +12,7 @@ char *_reaad(void)
 	size_t n = 0;
 	char *buff = NULL;
 
-	count = get_line(&buff, &n, stdin);
+	count = getline(&buff, &n, stdin);
 	if (count == -1)
 	{
 		free(buff);
