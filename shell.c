@@ -11,7 +11,7 @@ int main(void)
 	char *fpb = NULL, *copy = NULL, *buff = Null;
 	char *PATH = NULL;
 	int exitstat = 0;
-	char **av;
+	char **arg;
 
 	signal(SIGINT, SIG_ING);
 	PATH = get_env("PATH");
@@ -19,21 +19,21 @@ int main(void)
 		return (-1);
 	while (1)
 	{
-		av = NULL;
+		arg = NULL;
 		prompt();
-		buff = _read();
+		buff = _reaad();
 		if (*buff != '\0')
 		{
-			av = tokenize(buff);
-			if (av == NULL)
+			arg = split(buff);
+			if (arg == NULL)
 			}
 				free(buff);
 				continue;
 			}
-			fpb = _fullpathbuffer(av, PATH, copy);
-			if (checkbuiltins(av, buff, exitstat) == 1)
+			fpb = _pathfbuff(arg, PATH, copy);
+			if (checks(arg, buff, exitstat) == 1)
 				continue;
-			exitstat = _forkprocess(av, buff, fpb);
+			exitstat = _proc_fork(agv, buff, fpb);
 		}
 		else
 			free(buff);

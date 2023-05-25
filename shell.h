@@ -27,7 +27,7 @@ void prompt(void);
 void _print_num(int n);
 /* ssize_t _getline(char **line, size_t *n, FILE *file);*/
 char *_strtok(char *str, const char *dlm);
-char **split_input(char *line);
+char **split(char *buff);
 size_t _strlen(const char *str);
 char *_strdup(const char *s);
 char *_strcpy(char *des, const char *src);
