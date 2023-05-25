@@ -68,3 +68,48 @@ char *pathfbuff(char *arg, char *PATH, char *copy)
 	free(copy);
 	return (pathfbuff);
 }
+
+/**
+* _forkprocess - int function
+* @arc: parametre
+* @buff: parametre
+* @fpb: parametre
+* Made by Laila and Mega
+* Return: zero
+*/
+
+int _forkprocess(char **arc, char *buff, char *fpb)
+{
+	int a, stat, result, exitstat = 0;
+	pid_t pid;
+
+	pid = fork();
+	if (pid == -1)
+	{
+		perror("Error");
+		exit(1);
+	}
+	if (pid == 0)
+	{
+		result = execve(fpb, arc, environ);
+		if (result == -1)
+		{
+			perror(arc[0]);
+			for (a = 0; arc[a]; a++)
+				free(arc[a]);
+			free(arc);
+			free(buff);
+			exit(127);
+		}
+	}
+	wait(&stat);
+	if (WIFEXITED(stat))
+	{
+		exitstat = WEXITSTATUS(stat);
+	}
+	for (a = 0; arc[a]; a++)
+		free(arc[a]);
+	free(arc);
+	free(buff);
+	return (exitstat);
+}

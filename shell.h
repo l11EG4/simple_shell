@@ -43,6 +43,7 @@ void check_input(char **splited_input);
 int _echoo(char **arg);
 char *_con_cat(char *tmp, char **av, char *tok);
 int _PATHstrcmp(const char *s1, const char *s2);
+int _forkprocess(char **arc, char *buff, char *fpb)
 int _splitPATH(char *str);
 /*---------Alias function--*/
 int _snprint(char *str, size_t size, const char *format, ...);
