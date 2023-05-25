@@ -14,7 +14,7 @@ char **split(char *buff)
 	int number_tokens = 0, i;
 	char **argv;
 
-	number_tokens = _splites(buff);
+	number_tokens = _split(buff);
 	if (!number_tokens)
 		return (NULL);
 	argv = malloc((number_tokens + 1) * sizeof(char *));

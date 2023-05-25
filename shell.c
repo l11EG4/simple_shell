@@ -26,7 +26,7 @@ int main(void)
 		{
 			arg = split(buff);
 			if (arg == NULL)
-			}
+			{
 				free(buff);
 				continue;
 			}
