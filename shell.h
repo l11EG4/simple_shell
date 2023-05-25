@@ -48,6 +48,8 @@ int _proc_fork(char **arc, char *buff, char *fpb);
 int _splitPATH(char *str);
 char *_pathfbuff(char **arg, char *PATH, char *copy);
 int checks(char **arg, char *buff, int exitstat);
+void _puts(char *str);
+char *_memset(char *s, char b, unsigned int n);
 /*---------Alias function--*/
 int _snprint(char *str, size_t size, const char *format, ...);
 char *_strncpy(char *dst, const char *src, size_t n);
