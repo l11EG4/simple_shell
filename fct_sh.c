@@ -56,6 +56,8 @@ int checks(char **arg, char *buff, int exitstat)
 	}
 	else if (_strncmp(arg[0], "exit", 4) == 0)
 	{
+		if (arg[1] != NULL)
+			exitstat = atoi(arg[1]);
 		for (n = 0; arg[n]; n++)
 			free(arg[n]);
 		free(arg);
