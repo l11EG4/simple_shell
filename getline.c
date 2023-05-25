@@ -47,7 +47,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 	int i;
 	static ssize_t input;
 	ssize_t retval;
-	char *buffer, t = 'z', *star, *end;
+	char *buffer, t = 'z';
 
 	if (input == 0)
 		fflush(stream);
@@ -55,7 +55,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 		return (-1);
 	input = 0;
 	buffer = malloc(sizeof(char) * BUFSIZE);
-	if (buffer == 0)
+	if (buffer == NULL)
 		return (-1);
 	while (t != '\n')
 	{
@@ -76,15 +76,18 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 		input++;
 	}
 	buffer[input] = '\0';
-	star = buffer;
-	end = buffer + input - 1;
-	while (*star == ' ')
-		star++;
-	while (end > star && *end == ' ')
-		end--;
-	end[i] = '\0';
-	bring_line(lineptr, n, star, end - star + 1);
-	retval = end - star + 1;
+	while (*buffer == ' ')
+	{
+		buffer++;
+		input--;
+	}
+	while (input > 0 && buffer[input - 1] == ' ')
+	{
+		buffer[input - 1] = '\0';
+		input--;
+	}
+	bring_line(lineptr, n, buffer, input);
+	retval = input;
 	if (i != 0)
 		input = 0;
 	return (retval);
