@@ -41,6 +41,9 @@ int _print_str(char *str);
 int _putchar(char c);
 void check_input(char **splited_input);
 int _echoo(char **arg);
+char *_con_cat(char *tmp, char **av, char *tok);
+int _PATHstrcmp(const char *s1, const char *s2);
+int _splitPATH(char *str);
 /*---------Alias function--*/
 int _snprint(char *str, size_t size, const char *format, ...);
 char *_strncpy(char *dst, const char *src, size_t n);
