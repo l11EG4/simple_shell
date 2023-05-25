@@ -25,9 +25,8 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream);
 void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
 int prompt(void);
 void _print_num(int n);
-/* ssize_t _getline(char **line, size_t *n, FILE *file);*/
 char *_strtok(char *str, const char *dlm);
-char **split(char *buff);
+char **split(char *buff);/*tokenize*/
 size_t _strlen(const char *str);
 char *_strdup(const char *s);
 char *_strcpy(char *des, const char *src);
@@ -41,7 +40,7 @@ int _print_str(char *str);
 int _putchar(char c);
 void check_input(char **splited_input);
 int _echoo(char **arg);
-char *_con_cat(char *tmp, char **av, char *tok);
+char *_con_cat(char *tmp, char **arg, char *tok);
 int _PATHstrcmp(const char *s1, const char *s2);
 int _proc_fork(char **arg, char *buff, char *fpb);
 int _splitPATH(char *str);

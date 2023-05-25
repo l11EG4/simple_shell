@@ -28,9 +28,9 @@ int prompt(void)
 */
 char *_pathfbuff(char **arg, char *PATH, char *copy)
 {
-	char *concat, *token, *path = NULL;
+	char *token, *concat = NULL, *path = NULL;
 	int pathfflag = 0;
-	int len = 0, l = 0, count = 0;
+	int len = 0, z = 0, count = 0;
 	struct stat M;
 	static char temp[256];
 
@@ -47,7 +47,7 @@ char *_pathfbuff(char **arg, char *PATH, char *copy)
 			pathfflag = 1;
 			break;
 		}
-		if (l < count - 2)
+		if (z < count - 2)
 		{
 			len = _strlen(token);
 			if (token[len + 1] == ':')
@@ -60,7 +60,7 @@ char *_pathfbuff(char **arg, char *PATH, char *copy)
 				}
 			}
 		}
-		l++;
+		z++;
 		token = strtok(NULL, ":");
 	}
 	if (pathfflag == 0)

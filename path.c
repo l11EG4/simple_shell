@@ -10,22 +10,22 @@
 int _splitPATH(char *str)
 {
 	int a;
-	int wordcount = 0;
-	int searchflag = 1;
+	int count = 0;
+	int srcflg = 1;
 
 	for (a = 0; str[a]; a++)
 	{
-		if (str[a] != ':' && searchflag == 1)
+		if (str[a] != ':' && srcflg == 1)
 		{
-			wordcount += 1;
-			searchflag = 0;
+			count += 1;
+			srcflg = 0;
 		}
 		if (str[a + 1] == ':')
 		{
-			searchflag = 1;
+			srcflg = 1;
 		}
 	}
-	return (wordcount);
+	return (count);
 }
 
 /**
@@ -57,15 +57,15 @@ int _PATHstrcmp(const char *s1, const char *s2)
 * Return: zero
 */
 
-char *_con_cat(char *tmp, char **av, char *tok)
+char *_con_cat(char *tmp, char **arg, char *tok)
 {
 	int len = 0;
 
 	memset(tmp, 0, 256);
-	len = _strlen(tok) + _strlen(av[0]) + 2;
+	len = _strlen(tok) + _strlen(arg[0]) + 2;
 	_strcat(tmp, tok);
 	_strcat(tmp, "/");
-	_strcat(tmp, av[0]);
+	_strcat(tmp, arg[0]);
 	tmp[len - 1] = '\0';
 	return (tmp);
 }
