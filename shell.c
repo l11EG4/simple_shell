@@ -13,7 +13,7 @@ int main(void)
 	int exitstat = 0;
 	char **arg;
 
-	signal(SIGINT, SIG_ING);
+	signal(SIGINT, SIG_IGN);
 	PATH = get_env("PATH");
 	if (PATH == NULL)
 		return (-1);
@@ -33,7 +33,7 @@ int main(void)
 			fpb = _pathfbuff(arg, PATH, copy);
 			if (checks(arg, buff, exitstat) == 1)
 				continue;
-			exitstat = _proc_fork(agv, buff, fpb);
+			exitstat = _proc_fork(arg, buff, fpb);
 		}
 		else
 			free(buff);
