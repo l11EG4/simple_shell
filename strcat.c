@@ -13,9 +13,9 @@ char *_strcat(char *dstn, char *src)
 	int a;
 	int b;
 
-	for (a = 0; dstn[a] !=, a++)
+	for (a = 0; dstn[a] != '\0'; a++)
 		;
-	while (b = 0; src[b] != '\0'; b++)
+	for (b = 0; src[b] != '\0'; b++, a++)
 		dstn[a] = src[b];
 	dstn[a] = '\0';
 	return (dstn);
