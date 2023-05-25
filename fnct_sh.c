@@ -26,10 +26,10 @@ int prompt(void)
 * by: laila and mega
 * Return: ptr
 */
-char *_pathfbuff(char *arg, char *PATH, char *copy)
+char *_pathfbuff(char **arg, char *PATH, char *copy)
 {
 	char *concat, *token, *path = NULL;
-	int pathfflag = 0, len = 0;
+	int pathfflag = 0;
 	int len = 0, l = 0, count = 0;
 	struct stat M;
 	static char temp[256];
@@ -78,7 +78,7 @@ char *_pathfbuff(char *arg, char *PATH, char *copy)
 * Return: zero
 */
 
-int _proc_fork(char **arc, char *buff, char *fpb)
+int _proc_fork(char **arg, char *buff, char *fpb)
 {
 	int a, stat, result, exitstat = 0;
 	pid_t pid;
@@ -91,13 +91,13 @@ int _proc_fork(char **arc, char *buff, char *fpb)
 	}
 	if (pid == 0)
 	{
-		result = execve(fpb, arc, environ);
+		result = execve(fpb, arg, environ);
 		if (result == -1)
 		{
-			perror(arc[0]);
-			for (a = 0; arc[a]; a++)
-				free(arc[a]);
-			free(arc);
+			perror(arg[0]);
+			for (a = 0; arg[a]; a++)
+				free(arg[a]);
+			free(arg);
 			free(buff);
 			exit(127);
 		}
@@ -107,9 +107,9 @@ int _proc_fork(char **arc, char *buff, char *fpb)
 	{
 		exitstat = WEXITSTATUS(stat);
 	}
-	for (a = 0; arc[a]; a++)
-		free(arc[a]);
-	free(arc);
+	for (a = 0; arg[a]; a++)
+		free(arg[a]);
+	free(arg);
 	free(buff);
 	return (exitstat);
 }
