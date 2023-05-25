@@ -22,6 +22,12 @@ int main(void)
 		arg = NULL;
 		prompt();
 		buff = _reaad();
+		if (buff == NULL)
+		{
+			if (isatty(STDIN_FILENO))
+				_putchar('\n');
+			break;
+		}
 		if (*buff != '\0')
 		{
 			arg = split(buff);
@@ -38,5 +44,6 @@ int main(void)
 		else
 			free(buff);
 	}
+	free(PATH);
 	return (0);
 }
