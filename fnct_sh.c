@@ -37,7 +37,7 @@ char *_pathfbuff(char **arg, char *PATH, char *copy)
 	copy = NULL;
 	copy = _strdup(PATH);
 	count = _splitPATH(copy);
-	token = strtok(copy, ": =");
+	token = _strtok(copy, ": =");
 	while (token != NULL)
 	{
 		concat = _con_cat(temp, arg, token);
@@ -61,7 +61,7 @@ char *_pathfbuff(char **arg, char *PATH, char *copy)
 			}
 		}
 		z++;
-		token = strtok(NULL, ":");
+		token = _strtok(NULL, ":");
 	}
 	if (pathfflag == 0)
 		path = arg[0];

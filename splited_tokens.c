@@ -46,12 +46,12 @@ char **split(char *buff)
 	if (arg == NULL)
 		exit(1);
 	/*----------Split the input string to an array-----*/
-	tokens = strtok(buff, delimiters);
+	tokens = _strtok(buff, delimiters);
 
 	while (tokens != NULL)
 	{
 		arg[i] = _strdup(tokens);
-		tokens = strtok(NULL, delimiters);
+		tokens = _strtok(NULL, delimiters);
 		i++;
 	}
 	arg[i] = NULL;
