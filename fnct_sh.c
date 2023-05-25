@@ -78,7 +78,7 @@ char *pathfbuff(char *arg, char *PATH, char *copy)
 * Return: zero
 */
 
-int _forkprocess(char **arc, char *buff, char *fpb)
+int _proc_fork(char **arc, char *buff, char *fpb)
 {
 	int a, stat, result, exitstat = 0;
 	pid_t pid;

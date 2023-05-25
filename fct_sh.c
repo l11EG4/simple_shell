@@ -32,3 +32,36 @@ char *_reaad(void)
 	}
 	return (buff);
 }
+
+/**
+* checks - function
+*@arg: argument
+*@buff: arguemnt
+*@exitstat:argument
+* by: me and him
+*Return: integer
+*/
+int checks(char **arg, char *buff, int exitstat)
+{
+	int n;
+
+	if (_strncmp(arg[0], "env", 3) == 0)
+	{
+		_env();
+		for (n = 0; arg[n]; n++)
+			free(arg[n]);
+		free(arg);
+		free(buff);
+		return (1);
+	}
+	else if (_strncmp(arg[0], "exit", 4) == 0)
+	{
+		for (n = 0; arg[n]; n++)
+			free(arg[n]);
+		free(arg);
+		free(buff);
+		exit(exitstat);
+	}
+	else
+		return (0);
+}
