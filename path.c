@@ -57,7 +57,7 @@ int _PATHstrcmp(const char *s1, const char *s2)
 * Return: zero
 */
 
-char *_con_cat(char *tmp, char **av, chat *tok)
+char *_con_cat(char *tmp, char **av, char *tok)
 {
 	int len = 0;
 
