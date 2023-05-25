@@ -43,11 +43,8 @@ void check_input(char **splited_input);
 int _echoo(char **arg);
 char *_con_cat(char *tmp, char **av, char *tok);
 int _PATHstrcmp(const char *s1, const char *s2);
-<<<<<<< HEAD
 int _proc_fork(char **arg, char *buff, char *fpb);
-=======
 int _proc_fork(char **arc, char *buff, char *fpb);
->>>>>>> 8b6ba440852c758031a3f094d6d6c7eef6daedda
 int _splitPATH(char *str);
 char *_pathfbuff(char **arg, char *PATH, char *copy);
 int checks(char **arg, char *buff, int exitstat);
