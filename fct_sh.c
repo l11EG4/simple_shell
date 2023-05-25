@@ -62,6 +62,15 @@ int checks(char **arg, char *buff, int exitstat)
 		free(buff);
 		exit(exitstat);
 	}
+	else if (_strncmp(arg[0], "echo", 4) == 0)
+	{
+		_echoo(arg);
+		for (n = 0; arg[n]; n++)
+			free(arg[n]);
+		free(arg);
+		free(buff);
+		return (1);
+	}
 	else
 		return (0);
 }
