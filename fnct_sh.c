@@ -26,7 +26,7 @@ int prompt(void)
 * by: laila and mega
 * Return: ptr
 */
-char *pathfbuff(char *arg, char *PATH, char *copy)
+char *_pathfbuff(char *arg, char *PATH, char *copy)
 {
 	char *concat, *token, *pathfbuff = NULL;
 	int pathfflag = 0, len = 0;
@@ -70,7 +70,7 @@ char *pathfbuff(char *arg, char *PATH, char *copy)
 }
 
 /**
-* _forkprocess - int function
+* _proc_fork - int function
 * @arc: parametre
 * @buff: parametre
 * @fpb: parametre

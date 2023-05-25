@@ -47,7 +47,7 @@ int _splites(char *str)
 
 	for (i = 0; str[i]; i++)
 	{
-		if (str[i] != ' ' && srcflag = 1)
+		if (str[i] != ' ' && srcflag == 1)
 		{
 			cmp += 1;
 			srcflag = 0;
