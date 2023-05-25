@@ -50,7 +50,7 @@ int _PATHstrcmp(const char *s1, const char *s2)
 
 /**
 * _con_cat - charcter function
-* @av: vrbl
+* @arg: vrbl
 * @tok: vrbl
 * @tmp: vrbl
 * Made by Laila and Mega

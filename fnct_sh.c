@@ -71,7 +71,7 @@ char *_pathfbuff(char **arg, char *PATH, char *copy)
 
 /**
 * _proc_fork - int function
-* @arc: parametre
+* @arg: parametre
 * @buff: parametre
 * @fpb: parametre
 * Made by Laila and Mega
