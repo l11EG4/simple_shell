@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	char *fpb = NULL, *copy = NULL, *buff = Null;
+	char *fpb = NULL, *copy = NULL, *buff = NULL;
 	char *PATH = NULL;
 	int exitstat = 0;
 	char **arg;
