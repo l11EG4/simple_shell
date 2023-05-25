@@ -52,7 +52,7 @@ int _splites(char *str)
 			cmp += 1;
 			srcflag = 0;
 		}
-		if (str[i + 1] == ' ')
+		if (str[i + 1] == ':')
 			srcflag = 1;
 	}
 	return (cmp);

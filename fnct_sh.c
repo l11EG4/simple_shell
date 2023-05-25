@@ -61,7 +61,7 @@ char *_pathfbuff(char **arg, char *PATH, char *copy)
 			}
 		}
 		l++;
-		token = str(NULL, ":");
+		token = strtok(NULL, ":");
 	}
 	if (pathfflag == 0)
 		path = arg[0];
