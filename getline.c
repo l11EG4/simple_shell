@@ -10,27 +10,38 @@
 */
 void bring_line(char **lineptr, size_t *n, char *buffer, size_t j)
 {
-	if (*lineptr == NULL)
+	if (*lineptr == NULL || *n < j)
 	{
-		if (j > BUFSIZE)
-			*n = j;
-		else
-			*n = BUFSIZE;
-		*lineptr = buffer;
+		*n = j;
+		*lineptr = _realloc(*lineptr, *n, *n + 1);
 	}
-	else if (*n < j)
-	{
-		if (j > BUFSIZE)
-			*n = j;
-		else
-			*n = BUFSIZE;
-		*lineptr = buffer;
-	}
-	else
-	{
-		_strcpy(*lineptr, buffer);
-		free(buffer);
-	}
+	_memcpy(*lineptr, buffer, j);
+	free(buffer);
+
+/**	if (*lineptr == NULL)
+*	{
+*		if (j > BUFSIZE)
+*			*n = j;
+*		else
+*			*n = BUFSIZE;
+*		*lineptr = buffer;
+*	}
+*	else if (*n < j)
+*	{
+*		if (j > BUFSIZE)
+*			*n = j;
+*		else
+*			*n = BUFSIZE;
+*		*lineptr = buffer;
+*	}
+*	else
+*	{
+*		_strcpy(*lineptr, buffer);
+*
+*
+*		free(buffer);
+*	}
+*/
 }
 
 /**
