@@ -22,11 +22,6 @@ char *_reaad(void)
 	}
 	if (buff[count - 1] == '\n' || buff[count - 1] == '\t')
 		buff[count - 1] = '\0';
-	if (buff[0] == '#')
-	{
-		free(buff);
-		return (NULL);
-	}
 	for (i = 0; buff[i]; i++)
 	{
 		if (buff[i] == '#' && buff[i - 1] == ' ')
@@ -50,6 +45,11 @@ int checks(char **arg, char *buff, int exitstat)
 {
 	int n;
 
+	if (buff[0] == '#')
+	{
+		free(buff);
+		return (1);
+	}
 	if (_strncmp(arg[0], "env", 3) == 0)
 	{		{
 		_env();
