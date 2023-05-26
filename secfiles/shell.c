@@ -16,18 +16,13 @@ int main(void)
 	signal(SIGINT, SIG_IGN);
 	PATH = get_env("PATH");
 	if (PATH == NULL)
-		return (-1);
+		return (1);
 	while (1)
 	{
 		arg = NULL;
 		prompt();
 		buff = _reaad();
-		if (buff == NULL)
-		{
-			if (isatty(STDIN_FILENO))
-				_putchar('\n');
-			break;
-		}
+
 		if (*buff != '\0')
 		{
 			arg = split(buff);
@@ -37,6 +32,7 @@ int main(void)
 				continue;
 			}
 			fpb = _pathfbuff(arg, PATH, copy);
+
 			if (checks(arg, buff, exitstat) == 1)
 				continue;
 			exitstat = _proc_fork(arg, buff, fpb);
@@ -44,6 +40,6 @@ int main(void)
 		else
 			free(buff);
 	}
-	free(PATH);
+
 	return (0);
 }
