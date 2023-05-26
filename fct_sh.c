@@ -21,7 +21,7 @@ char *_reaad(void)
 		exit(0);
 	}
 	if (buff[count - 1] == '\n' || buff[count - 1] == '\t')
-		buff[count - 1] = '\n';
+		buff[count - 1] = '\0';
 	for (i = 0; buff[i]; i++)
 	{
 		if (buff[i] == '#' && buff[i - 1] == ' ')
