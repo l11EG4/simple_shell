@@ -69,11 +69,12 @@ ssize_t handle_spaces(char *buffer, ssize_t input)
 * by: l&z
 * Return: number of inputs read
 */
-ssize_t r_input(char *buffer, ssize_t input, __attribute__((unused))FILE *stream)
+ssize_t r_input(char *buffer, ssize_t input, FILE *stream)
 {
 	int n;
 	char t;
 
+	(void) stream;
 	while (t != '\n')
 	{
 		n = read(STDIN_FILENO, &t, 1);

@@ -26,7 +26,7 @@ void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
 int prompt(void);
 void _print_num(int n);
 char *_strtok(char *str, const char *dlm);
-char **split(char *buff);/*tokenize*/
+char **split(char *buff);
 size_t _strlen(const char *str);
 char *_strdup(const char *s);
 char *_strcpy(char *des, const char *src);
