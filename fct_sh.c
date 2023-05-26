@@ -47,7 +47,16 @@ int checks(char **arg, char *buff, int exitstat)
 
 	if (_strncmp(arg[0], "env", 3) == 0)
 	{
-		_env();
+		if (arg[1] != NULL && _strncmp(arg[1], "-n", 2) == 0)
+		{
+			if (arg[2] != NULL)
+				exec_one_var(arg[2]);
+			else
+				exec_no_var();
+		}
+		else
+			_env();
+
 		for (n = 0; arg[n]; n++)
 			free(arg[n]);
 		free(arg);
@@ -75,4 +84,43 @@ int checks(char **arg, char *buff, int exitstat)
 	}
 	else
 		return (0);
+}
+/**
+* exec_no_var - env without var
+*by: lailaOmega
+*/
+void exec_no_var(void)
+{
+	int i;
+
+	for (i = 0; environ[i] != NULL; i++)
+		environ[i] = NULL;
+	_env();
+}
+/**
+* exec_one_var -with one var
+* @var: arg
+* by: l&Z
+*/
+void exec_one_var(const char *var)
+{
+	int i;
+	char *var_c, *name, *value, *envv;
+
+	for (i = 0; environ[i] != NULL; i++)
+		environ[i] = NULL;
+	var_c = _strdup(var);
+	name = _strtok(var_c, "=");
+	value = _strtok(var_c, "=");
+	if (name != NULL && value != NULL)
+	{
+		envv =  malloc(_strlen(name) + _strlen(value) + 2);
+		_print_str(envv);
+		_print_str("=");
+		_print_str(name);
+		_print_str(value);
+		environ[0] = envv;
+	}
+	_env();
+	free(var_c);
 }
