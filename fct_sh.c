@@ -45,10 +45,6 @@ int checks(char **arg, char *buff, int exitstat)
 {
 	int n;
 
-	if (buff[0] == '#')
-	{
-		return (1);
-	}
 	if (_strncmp(arg[0], "env", 3) == 0)
 	{		{
 		_env();
