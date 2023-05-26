@@ -16,7 +16,7 @@ int main(void)
 	signal(SIGINT, SIG_IGN);
 	PATH = get_env("PATH");
 	if (PATH == NULL)
-		return (1);
+		return (-1);
 	while (1)
 	{
 		arg = NULL;

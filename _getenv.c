@@ -33,6 +33,6 @@ int _env(void)
 	int a;
 
 	for (a = 0; environ[a]; a++)
-		puts(environ[a]);
+		_puts(environ[a]);
 	return (0);
 }
