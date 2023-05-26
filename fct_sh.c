@@ -46,7 +46,7 @@ int checks(char **arg, char *buff, int exitstat)
 	int n;
 
 	if (_strncmp(arg[0], "env", 3) == 0)
-	{		{
+	{
 		_env();
 		for (n = 0; arg[n]; n++)
 			free(arg[n]);
