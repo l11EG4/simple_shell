@@ -10,38 +10,29 @@
 */
 void bring_line(char **lineptr, size_t *n, char *buffer, size_t j)
 {
-	if (*lineptr == NULL || *n < j)
-	{
-		*n = j;
-		*lineptr = _realloc(*lineptr, *n, *n + 1);
-	}
-	_memcpy(*lineptr, buffer, j);
-	free(buffer);
 
-/**	if (*lineptr == NULL)
-*	{
-*		if (j > BUFSIZE)
-*			*n = j;
-*		else
-*			*n = BUFSIZE;
-*		*lineptr = buffer;
-*	}
-*	else if (*n < j)
-*	{
-*		if (j > BUFSIZE)
-*			*n = j;
-*		else
-*			*n = BUFSIZE;
-*		*lineptr = buffer;
-*	}
-*	else
-*	{
-*		_strcpy(*lineptr, buffer);
-*
-*
-*		free(buffer);
-*	}
-*/
+	if (*lineptr == NULL)
+	{
+		if (j > BUFSIZE)
+			*n = j;
+		else
+			*n = BUFSIZE;
+		*lineptr = buffer;
+	}
+	else if (*n < j)
+	{
+		if (j > BUFSIZE)
+			*n = j;
+		else
+			*n = BUFSIZE;
+		*lineptr = buffer;
+	}
+	else
+	{
+		_strcpy(*lineptr, buffer);
+		free(buffer);
+	}
+
 }
 
 /**
@@ -85,13 +76,26 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 		{
 			buffer = _realloc(buffer, input, input + 1);
 			if (buffer == NULL)
-			{
-				free(buffer);
 				return (-1);
-			}
 		}
 		buffer[input] = t;
 		input++;
+		if (t == ' ')
+		{
+			while (i == 1 && t == ' ')
+			{
+				i = read(STDIN_FILENO, &t, 1);
+				if (i == -1)
+				{
+					free(buffer);
+					return (-1);
+				}
+			}
+			if (i == 0)
+				break;
+			buffer[input] = t;
+			input++;
+		}
 	}
 	buffer[input] = '\0';
 	bring_line(lineptr, n, buffer, input);
