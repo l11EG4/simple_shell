@@ -50,4 +50,6 @@ void _puts(char *str);
 char *_memset(char *s, char b, unsigned int n);
 int _splitstring(char *s);
 /*---------Alias function--*/
+int _snprint(char *str, size_t size, const char *format, ...);
+char *_strncpy(char *dst, const char *src, size_t n);
 #endif
