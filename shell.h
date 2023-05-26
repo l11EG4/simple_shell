@@ -53,6 +53,4 @@ int _splitstring(char *s);
 /*---------Alias function--*/
 int _snprint(char *str, size_t size, const char *format, ...);
 char *_strncpy(char *dst, const char *src, size_t n);
-void exec_one_var(const char *var);
-void exec_no_var(void);
 #endif
