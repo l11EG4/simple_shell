@@ -124,11 +124,12 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 	if (input == -1)
 	{
 		free(buffer);
-			return (-1);
+		return (-1);
 	}
 
 	input = handle_spaces(buffer, input);
 	bring_line(lineptr, n, buffer, input);
 	retval = input;
+	input = 0;
 	return (retval);
 }
