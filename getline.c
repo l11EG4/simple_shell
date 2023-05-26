@@ -82,7 +82,14 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 			break;
 		}
 		if (input >= BUFSIZE)
+		{
 			buffer = _realloc(buffer, input, input + 1);
+			if (buffer == NULL)
+			{
+				free(buffer);
+				return (-1);
+			}
+		}
 		buffer[input] = t;
 		input++;
 	}
