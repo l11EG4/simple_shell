@@ -32,7 +32,7 @@ int _env(void)
 {
 	int a;
 
-	for (a = 0; environ[a] != NULL; a++)
+	for (a = 0; environ[a]; a++)
 		_puts(environ[a]);
 	return (0);
 }
