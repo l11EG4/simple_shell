@@ -1,0 +1,19 @@
+#include "shell.h"
+
+/**
+* _set_env - set env variable
+* @var: argument
+* @value: arg
+* @flag: flag
+* by: l&z
+* Return: 0 or -1
+*/
+int _set_env(const char *var, const char *value, int flag)
+{
+	int var_len, value_len, res, i, env_cmp;
+	char *env_ent;
+	char **new_env;
+
+	if (var == NULL || value == NULL)
+		return (-1);
+	res = flag ? set
