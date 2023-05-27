@@ -61,6 +61,11 @@ ssize_t handle_spaces(char *buffer, ssize_t input)
 	}
 	return (input);
 }
+/**
+* fileno -  convert to int
+* @stream: arg
+* Return: int
+*/
 int fileno(FILE *stream)
 {
 	return stream->_fileno;
