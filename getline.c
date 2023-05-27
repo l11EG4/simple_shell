@@ -34,75 +34,6 @@ void bring_line(char **lineptr, size_t *n, char *buffer, size_t j)
 	}
 
 }
-/**
-* handle_spaces - handles long spaces
-* @buffer: argument
-* @input: argument
-* by: L&Z
-* Return: handle long spaces
-*/
-ssize_t handle_spaces(char *buffer, ssize_t input)
-{
-	ssize_t n;
-	char t = '\0';
-
-	while (buffer[input - 1] == ' ')
-	{
-		n = read(STDIN_FILENO, &t, 1);
-		if (n == -1)
-			return (-1);
-		if (n == 0)
-			break;
-		if (t != ' ')
-		{
-			buffer[input]  = t;
-			input++;
-		}
-	}
-	return (input);
-}
-/**
-* fileno -  convert to int
-* @stream: arg
-* Return: int
-*/
-int fileno(FILE *stream)
-{
-	return stream->_fileno;
-}
-
-/**
-* r_input - read the input stream
-* @buffer: buffer
-* @input: argument
-* @stream: stream
-* by: l&z
-* Return: number of inputs read
-*/
-ssize_t r_input(char *buffer, ssize_t input, FILE *stream)
-{
-	int n;
-	char t = '\0';
-
-	while (t != '\n')
-	{
-		n = read(fileno(stream), &t, 1);
-		if (n == -1 || (n == 0 && input == 0))
-			return (-1);
-		if (n == 0 && input != 0)
-			break;
-		if (input >= BUFSIZE)
-		{
-			buffer = _realloc(buffer, input, input + 1);
-			if (buffer == NULL)
-				return (-1);
-		}
-		buffer[input] = t;
-		input++;
-	}
-	buffer[input] = '\0';
-	return (input);
-}
 
 /**
 * get_line - read the input from stream
@@ -115,9 +46,10 @@ ssize_t r_input(char *buffer, ssize_t input, FILE *stream)
 
 ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 {
+	int i;
 	static ssize_t input;
 	ssize_t retval;
-	char *buffer;
+	char *buffer, t = 'z';
 
 	if (input == 0)
 		fflush(stream);
@@ -127,18 +59,48 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 	buffer = malloc(sizeof(char) * BUFSIZE);
 	if (buffer == NULL)
 		return (-1);
-
-	input = r_input(buffer, input, stream);
-
-	if (input == -1)
+	while (t != '\n')
 	{
-		free(buffer);
-		return (-1);
+		i = read(STDIN_FILENO, &t, 1);
+		if (i == -1 || (i == 0 && input == 0))
+		{
+			free(buffer);
+			return (-1);
+		}
+		if (i == 0 && input != 0)
+		{
+			input++;
+			break;
+		}
+		if (input >= BUFSIZE)
+		{
+			buffer = _realloc(buffer, input, input + 1);
+			if (buffer == NULL)
+				return (-1);
+		}
+		buffer[input] = t;
+		input++;
+		if (t == ' ')
+		{
+			while (i == 1 && t == ' ')
+			{
+				i = read(STDIN_FILENO, &t, 1);
+				if (i == -1)
+				{
+					free(buffer);
+					return (-1);
+				}
+			}
+			if (i == 0)
+				break;
+			buffer[input] = t;
+			input++;
+		}
 	}
-
-	input = handle_spaces(buffer, input);
+	buffer[input] = '\0';
 	bring_line(lineptr, n, buffer, input);
 	retval = input;
-	input = 0;
+	if (i != 0)
+		input = 0;
 	return (retval);
 }
