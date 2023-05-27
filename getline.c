@@ -71,7 +71,7 @@ ssize_t handle_spaces(char *buffer, ssize_t input)
 */
 ssize_t r_input(char *buffer, ssize_t input, FILE *stream)
 {
-	int n;
+	int n, i;
 	char t;
 
 	(void) stream;
