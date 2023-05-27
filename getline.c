@@ -93,18 +93,12 @@ ssize_t r_input(char *buffer, ssize_t input, FILE *stream)
 		if (t == '\n')
 			break;
 	}
-	for (i = 0; i < input; i++)
-	{
-		if (buffer[i] != ' ')
-			break;
-	}
-	if (i == input)
-	{
-		buffer[0] = '\0';
-		input = 0;
-	}
-	buffer[input] = '\0';
-	return (input);
+	i = input - 1;
+	while (i >= && buffer[i] == ' ')
+		i--;
+
+	buffer[i + 1] = '\0';
+	return (i + 1);
 }
 
 /**
