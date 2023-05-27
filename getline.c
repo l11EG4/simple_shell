@@ -93,6 +93,16 @@ ssize_t r_input(char *buffer, ssize_t input, FILE *stream)
 		if (t == '\n')
 			break;
 	}
+	for (i = 0; i < input; i++)
+	{
+		if (buffer[i] != ' ')
+			break;
+	}
+	if (i == input)
+	{
+		buffer[0] = '\0';
+		input = 0;
+	}
 	buffer[input] = '\0';
 	return (input);
 }
@@ -126,7 +136,7 @@ ssize_t get_line(char **lineptr, size_t *n, FILE *stream)
 	if (input == -1)
 	{
 		free(buffer);
-			return (-1);
+		return (-1);
 	}
 
 	input = handle_spaces(buffer, input);
