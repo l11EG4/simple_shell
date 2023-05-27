@@ -44,7 +44,7 @@ void bring_line(char **lineptr, size_t *n, char *buffer, size_t j)
 ssize_t handle_spaces(char *buffer, ssize_t input)
 {
 	ssize_t n;
-	char t;
+	char t = '\0';
 
 	while (buffer[input - 1] == ' ')
 	{
@@ -61,6 +61,11 @@ ssize_t handle_spaces(char *buffer, ssize_t input)
 	}
 	return (input);
 }
+int fileno(FILE *stream)
+{
+	return stream->_fileno;
+}
+
 /**
 * r_input - read the input stream
 * @buffer: buffer
@@ -72,12 +77,11 @@ ssize_t handle_spaces(char *buffer, ssize_t input)
 ssize_t r_input(char *buffer, ssize_t input, FILE *stream)
 {
 	int n;
-	char t;
+	char t = '\0';
 
-	(void) stream;
 	while (t != '\n')
 	{
-		n = read(STDIN_FILENO, &t, 1);
+		n = read(fileno(stream), &t, 1);
 		if (n == -1 || (n == 0 && input == 0))
 			return (-1);
 		if (n == 0 && input != 0)
