@@ -1,5 +1,6 @@
 #ifndef SHELL_H
 #define SHELL_H
+
 /*-----------------------Include_Libraries-----------------------*/
 #include <stdio.h>
 #include <stdlib.h>
@@ -52,4 +53,5 @@ int _splitstring(char *s);
 /*---------Alias function--*/
 int _snprint(char *str, size_t size, const char *format, ...);
 char *_strncpy(char *dst, const char *src, size_t n);
+
 #endif
